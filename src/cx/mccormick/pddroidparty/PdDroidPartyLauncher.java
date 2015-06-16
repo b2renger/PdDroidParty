@@ -14,6 +14,11 @@ import android.content.res.AssetManager;
 
 public class PdDroidPartyLauncher extends Activity
 {
+	/**
+	 * Launch a Pure Data Activity
+	 * @param activity calling activity (usually "this" when launched from another activity)
+	 * @param patchPath path to the pure data patch file relative to assets directory.
+	 */
 	public static void launch(Activity activity, String patchPath)
 	{
 		// copy patch folder to cache directory
