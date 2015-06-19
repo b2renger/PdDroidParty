@@ -69,7 +69,8 @@ public class Touch extends Widget {
 		if(pid == pid0) {
 			down = false;
 			pid0 = -1;
-			send("-1 -1");
+			Sendxy(x,y);
+			//send("-1 -1");
 		}
 		return false;
 	}
