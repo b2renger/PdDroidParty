@@ -53,6 +53,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -488,10 +489,18 @@ public class PdDroidParty extends Activity {
 
 		slaveLayout.addView(midiInSpinner);
 
-		main.addView(btSlave);
-		main.addView(masterLayout);
-		main.addView(slaveLayout);
-		main.addView(btSetup);
+		LinearLayout msLayout = new LinearLayout(this);
+		msLayout.setOrientation(LinearLayout.VERTICAL);
+		msLayout.addView(masterLayout);
+		msLayout.addView(slaveLayout);
+		
+		LinearLayout ctLayout = new LinearLayout(this);
+		ctLayout.setOrientation(LinearLayout.VERTICAL);
+		ctLayout.addView(btSlave);
+		ctLayout.addView(btSetup);
+		
+		main.addView(ctLayout);
+		main.addView(msLayout);
 		
 		return main;
 	}
