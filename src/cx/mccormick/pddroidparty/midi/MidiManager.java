@@ -158,4 +158,9 @@ public class MidiManager  implements NetworkMidiListener, NMJSystemListener
 			}
 		}
 	}
+
+	public void resumeClock() 
+	{
+		clock.resume(midiOut, bpm);
+	}
 }

@@ -377,6 +377,15 @@ public class PdDroidParty extends Activity {
 			}
 		});
 		
+		Button btResume = new Button(this);
+		btResume.setText("Resume");
+		btResume.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				midiManager.resumeClock();
+			}
+		});
+		
 		final TextView bpmLabel = new TextView(this);
 		bpmLabel.setText("60");
 		
@@ -471,6 +480,7 @@ public class PdDroidParty extends Activity {
 		
 		masterLayout.addView(btStart);
 		masterLayout.addView(btStop);
+		masterLayout.addView(btResume);
 		masterLayout.addView(slider);
 		masterLayout.addView(bpmLabel);
 		
