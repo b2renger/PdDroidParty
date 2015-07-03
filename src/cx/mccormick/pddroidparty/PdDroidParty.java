@@ -351,6 +351,9 @@ public class PdDroidParty extends Activity {
 	
 	private View createControlView()
 	{
+		final int BPM_MIN = 60;
+		final int BPM_MAX = 480;
+		
 		LinearLayout main = new LinearLayout(this);
 		main.setOrientation(LinearLayout.HORIZONTAL);
 		
@@ -388,10 +391,10 @@ public class PdDroidParty extends Activity {
 		});
 		
 		final TextView bpmLabel = new TextView(this);
-		bpmLabel.setText("60");
+		bpmLabel.setText(String.valueOf(BPM_MIN));
 		
 		SeekBar slider = new SeekBar(this);
-		slider.setMax(180); // TODO 240 - 60 ...
+		slider.setMax(BPM_MAX - BPM_MIN);
 		
 		slider.setLayoutParams(new ViewGroup.LayoutParams(300, ViewGroup.LayoutParams.WRAP_CONTENT));
 		
@@ -407,7 +410,7 @@ public class PdDroidParty extends Activity {
 			
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				int bpm = progress + 60;
+				int bpm = progress + BPM_MIN;
 				midiManager.setBpm(bpm);
 				bpmLabel.setText(String.valueOf(bpm)); 
 			}
